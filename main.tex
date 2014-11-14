@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage{graphicx,amsmath,listings,hyperref,color}
+
+\input{sections/title.tex}
+
+\begin{document} 
+
+\pagestyle{empty} % Removes page numbers
+
+\titleGP % This command includes the title page
+
+\vspace*{10\baselineskip} % Whitespace between location/year and editors
+\tableofcontents
+\vspace*{25\baselineskip}
+\section{Introduction}
+\input{sections/introduction.tex}
+\section{Research Question}
+\input{sections/rq.tex}
+\section{Methodology}
+\input{sections/method.tex}
+\section{Results}
+\input{sections/result.tex}
+\section{Discussion}
+\input{sections/discussion.tex}
+\section{Conclusion}
+\input{sections/conclusion.tex}
+\section{Future Work}
+\input{sections/fw.tex}
+
+\vspace*{2\baselineskip} % Whitespace between location/year and editors
+
+\begin{thebibliography}{9}
+\end{thebibliography}
+
+
+\end{document}
