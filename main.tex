@@ -1,17 +1,27 @@
 \documentclass{article}
 \usepackage{graphicx,amsmath,listings,hyperref,color}
+\usepackage[english]{babel}
 
-\input{sections/title.tex}
 
 \begin{document} 
 
-\pagestyle{empty} % Removes page numbers
+\begin{figure}[!bh]
+	\begin{center}
+		\huge \title{Evaluation of the security of smartwatch communication}
+		\author{Harm Dermois, James Gratchoff, Florian Ecard,  Master SNE, UvA} 
+		\date{December 2014\\}
+	\maketitle 
+		\includegraphics{uva.jpeg}
+		\label{sec:uva}
+	\end{center}
+\end{figure}
 
-\titleGP % This command includes the title page
+\newpage
 
-\vspace*{10\baselineskip} % Whitespace between location/year and editors
 \tableofcontents
-\vspace*{25\baselineskip}
+
+\newpage
+
 \section{Introduction}
 \input{sections/introduction.tex}
 \section{Research Question}
@@ -26,6 +36,8 @@
 \input{sections/conclusion.tex}
 \section{Future Work}
 \input{sections/fw.tex}
+
+
 
 \vspace*{2\baselineskip} % Whitespace between location/year and editors
 
