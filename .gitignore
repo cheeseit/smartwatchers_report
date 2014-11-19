@@ -1,0 +1,10 @@
+*.aux
+*.dvi
+*.pdf
+*.ps
+*.log
+*.synctex.gz
+*.out
+*.fls
+*.fdb_*
+main.aux
