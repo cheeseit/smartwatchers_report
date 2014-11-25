@@ -1,11 +1,52 @@
 \subsubsection{Introduction}
-Bluetooth is a wireless communication technology created in 1994 by the mobile telecom company Ericsson. Bluetooth was designed for low-power consumption devices such as sensors, mobile phones, etc. Nowadays more and more devices uses Bluetooth moreover thanks to the uprising of Internet of Things (IoT) and small battery reliant devices.
+Bluetooth is a wireless communication technology created in 1994 by the mobile telecommunication company Ericsson. Bluetooth was designed for low-power consumption devices such as sensors, mobile phones, etc. Nowadays, more and more devices use Bluetooth mainly due to the uprising of Internet of Things (IoT) and small battery reliant devices.
 
 \subsubsection{Bluetooth communication}
-Bluetooth operates in the 2.4 GHz frequency band and uses frequency-hopping spread spectrum. This FHSS means that each packets from a Bluetooth communication is transmitted on one of 79 channels that have a bandwidth of 1MHz each. 
-Currently the latest version of Bluetooth is 4.1 that is know as Bluetooth low energy. As its name says BT-LE was designed to reduce power consumption while providing the same communication range and speed that were used in the previous versions. The case study in this project is however not using this latest version however it is using Bluetooth 3.0 + HS (high speed), the version 3.0 + HS is providing a data transfer speed of 24 Mbit/s. Bluetooth is also using a adaptive frequency-hopping spectrum (AFH) used to avoid crowded frequency in the channel spectrum.
+Bluetooth operates in the 2.4 GHz frequency band and uses frequency-hopping spread spectrum. This FHSS means that each packets from a Bluetooth communication is transmitted on one of 79 channels having a bandwidth of 1MHz each. 
+
+\Large It is needed to describe older versions as well.
+
+Currently, the latest version of Bluetooth is 4.1 that is known as Bluetooth low energy (BT-LE). As its name says, BT-LE was designed to reduce power consumption while providing the same communication range and speed that were used in the previous versions. 
+The case study in this project is however not using this latest version, but the Bluetooth 3.0 + HS (High Speed), this version is  the first one providing a high data transfer speed that can go up to 24 Mbit/s. It is able to provide such a speed by using the famous 802.11 wireless protocol, it uses a "go all out" policy which first uses normal Bluetooth communication for pairing process and when a file is wanted to be exchanged or whatsoever then it swaps to the wireless in order to provide this speed.
+
+Bluetooth is also using adaptive frequency-hopping spectrum (AFH), used to avoid crowded frequency in the channel spectrum.
 
 \subsubsection{Overview of Bluetooth security}
+The user sets the basic security in bluetooth. It has the choice between three different modes:
+ \begin{itemize}
+ 	\item Silent: In this mode, the device will not initiate any connection. The only thing it does is monitoring the traffic.
+ 	\item Private: The device will in that case only answer to device that it already paired with, thus making it (theoretically) only discoverable to known devices. A device is known if the external device's BD_ADDR (Bluetooth Device Address) is recognized by the user's entity.
+ 	\item Public: The device is discoverable by anyone around it having its bluetooth activated.
+ \end{itemize}
+ 
+The BD_ADDR of a device is composed of 48 bits. This address is divided into three parts, the first one being called the UAP (Upper Address Part) which is 8 bits long combined as well as the Non-significant Address Part (NAP) being 16 bits long form together the manufacturer ship, or company_id. The last part being 24 bits long is the Lower Address Part (LAP) almost uniquely identifying a device, this one is the one that will be used in the first stage of sniffing in order to decode the captured packets (This will be further explained later on). 
+
+A bluetooth device can implement four different security modes:
+  \begin{itemize}
+  	\item Non Secure: As its name suggests there is no security.
+  	\item Service-level enforced security mode: It establishes a non secure ACL link between the two devices willing to communicate. In order to introduce optional encryption, Authentication and authorization, a request has to be made via L2CAP (Logical Link Control and Adaptation Protocol) connection-oriented or connection-less channel.
+  	\item Link level enforced security mode: Once the ACL links are done then security procedures are initiated.
+  	\item Service-level enforced security mode: This one is very similar to the second mode except that it introduces SSP (Secure Simple Pairing) and this is compatible only with bluetooth versions from 2.1 + EDR
+  \end{itemize}
+ 
 Bluetooth implements confidentiality, authentication and key derivation with custom algorithms based on the SAFER+ block cipher. (how CA is provided)
 
+The information provided in this subsection are based on K. Haataja et al. book [XXX] and wikipedia [XXX].
+
 \subsubsection{Known Attacks on bluetooth}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
