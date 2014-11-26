@@ -12,6 +12,7 @@ The case study in this project is however not using this latest version, but the
 Bluetooth is also using adaptive frequency-hopping spectrum (AFH), used to avoid crowded frequency in the channel spectrum.
 
 \subsubsection{Overview of Bluetooth security}
+
 The user sets the basic security in bluetooth. It has the choice between three different modes:
  \begin{itemize}
  	\item Silent: In this mode, the device will not initiate any connection. The only thing it does is monitoring the traffic.
@@ -24,12 +25,32 @@ The BD\_ADDR of a device is composed of 48 bits. This address is divided into th
 A bluetooth device can implement four different security modes:
   \begin{itemize}
   	\item Non Secure: As its name suggests there is no security.
-  	\item Service-level enforced security mode: It establishes a non secure ACL link between the two devices willing to communicate. In order to introduce optional encryption, Authentication and authorization, a request has to be made via L2CAP (Logical Link Control and Adaptation Protocol) connection-oriented or connection-less channel.
+  	\item Service-level enforced security mode: It establishes a non secure ACL (Asynchronous connectionless) 	link between the two devices willing to communicate. In order to introduce optional encryption, Authentication and authorization, a request has to be made via L2CAP (Logical Link Control and Adaptation Protocol) connection-oriented or connection-less channel.
   	\item Link level enforced security mode: Once the ACL links are done then security procedures are initiated.
-  	\item Service-level enforced security mode: This one is very similar to the second mode except that it introduces SSP (Secure Simple Pairing) and this is compatible only with bluetooth versions from 2.1 + EDR
+  	\item Service-level enforced security mode: This one is very similar to the second mode except that it introduces SSP (Secure Simple Pairing) and this is compatible only with bluetooth versions from 2.1 + EDR.
   \end{itemize}
+  
+
+\textbf{Pairing process}
+
+SSP has been implemented in order to overcome the weakness of the 4 digits pass at pairing time (only about 10.000 possibilities max). Indeed, using an elaborated bluetooth sniffer would allow to almost instantly find these digits and then bypassing the security in addition to make the pairing process easier than it used to be.
+	
+The fact of pairing two pairing is actually to create a shared key, called the Link key. It will be used to authenticate and encrypt the data of two devices.
+In order to do so, there are two possibilities: LMP-pairing (4-digits/pincode manner) or SSP.
+Once this done, the two devices can store their mutual key in order to use it later for a re-pairing, making the connection much faster.
+
+In LMP-pairing, the only thing that is not transmitted through the air is the 4 digits PIN code. The pairing process in this case works as follow:
+The initiator will first generate a 16-bytes random number and then send it to the other device. Once received, both users will put in their PIN code which they will use to create an initialization key, the later will be converted into the actual LMP key. The two devices have to authenticate each other with their respective LMP key. 
+A software created by Ellisis [XXX] allows an attacker that listens to the traffic to guess with the given information the 4 digits, thus making LMP useless. 
+
+SSP was then created, fixing the above vulnerability even though we can still find this mechanism in many devices for backward compatibilities.
+SSP is a new manner of generating a link key (and user numbers such as PIN codes can still be used) using Elliptic Curve in order to create in this situation a much bigger random number now setting the number of possible Link keys to \(2^{128}\) which is far too big to be brute forced, nowadays anyway. 
+
+
+
  
-Bluetooth implements confidentiality, authentication and key derivation with custom algorithms based on the SAFER+ block cipher. (how CA is provided)
+While BTLE uses AES, the older bluetooth versions up to the 3.0+HS are using SAFER+ (Secure and Fast Encryption Routine) in order to provide authentication and key generation.
+
 
 The information provided in this subsection are based on K. Haataja et al. book [XXX] and wikipedia [XXX].
 

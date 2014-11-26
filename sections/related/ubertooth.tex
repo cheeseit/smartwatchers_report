@@ -1,5 +1,4 @@
 \subsubsection{Motivating the packet sniffing problem}
-\{subsubsection}
 Bluetooth technology is harder to sniff compared to other wireless protocols such as 802.11 that already have solutions for promiscuous packet sniffing. Because of howthe way Bluetooth works it is harder to tap the communication between two devices. The devices need to pair before real message are being send. Normally you can only see the discovery messages with are used to find out which Bluetooth devices want to be found. Another problem is that Bluetooth devices can choose to stay hidden.
 Due to frequency hopping it is hard to keep track of a device and listen to packet exchanged. However with the Ubertooth project it is now possible. To do so 3 parameters need to be known prior to be able to retrieve any information, the Lower Address Part (LAP), the Upper Address Part (UAP) and the clock CLKN that is the upper 26 bits of the CLK27 of the masters clock. The process to find this parameters is explained later on.
 
