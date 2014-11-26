@@ -4,7 +4,7 @@ Bluetooth is a wireless communication technology created in 1994 by the mobile t
 \subsubsection{Bluetooth communication}
 Bluetooth operates in the 2.4 GHz frequency band and uses frequency-hopping spread spectrum. This FHSS means that each packets from a Bluetooth communication is transmitted on one of 79 channels having a bandwidth of 1MHz each. 
 
-\Large It is needed to describe older versions as well.
+It is needed to describe older versions as well.
 
 Currently, the latest version of Bluetooth is 4.1 that is known as Bluetooth low energy (BT-LE). As its name says, BT-LE was designed to reduce power consumption while providing the same communication range and speed that were used in the previous versions. 
 The case study in this project is however not using this latest version, but the Bluetooth 3.0 + HS (High Speed), this version is  the first one providing a high data transfer speed that can go up to 24 Mbit/s. It is able to provide such a speed by using the famous 802.11 wireless protocol, it uses a "go all out" policy which first uses normal Bluetooth communication for pairing process and when a file is wanted to be exchanged or whatsoever then it swaps to the wireless in order to provide this speed.
@@ -15,11 +15,11 @@ Bluetooth is also using adaptive frequency-hopping spectrum (AFH), used to avoid
 The user sets the basic security in bluetooth. It has the choice between three different modes:
  \begin{itemize}
  	\item Silent: In this mode, the device will not initiate any connection. The only thing it does is monitoring the traffic.
- 	\item Private: The device will in that case only answer to device that it already paired with, thus making it (theoretically) only discoverable to known devices. A device is known if the external device's BD_ADDR (Bluetooth Device Address) is recognized by the user's entity.
  	\item Public: The device is discoverable by anyone around it having its bluetooth activated.
+ 	\item Private: The device will in that case only answer to device that it already paired with, thus making it (theoretically) only discoverable to known 
  \end{itemize}
- 
-The BD_ADDR of a device is composed of 48 bits. This address is divided into three parts, the first one being called the UAP (Upper Address Part) which is 8 bits long combined as well as the Non-significant Address Part (NAP) being 16 bits long form together the manufacturer ship, or company_id. The last part being 24 bits long is the Lower Address Part (LAP) almost uniquely identifying a device, this one is the one that will be used in the first stage of sniffing in order to decode the captured packets (This will be further explained later on). 
+
+The BD\_ADDR of a device is composed of 48 bits. This address is divided into three parts, the first one being called the UAP (Upper Address Part) which is 8 bits long combined as well as the Non-significant Address Part (NAP) being 16 bits long form together the manufacturer ship, or company\_id. The last part being 24 bits long is the Lower Address Part (LAP) almost uniquely identifying a device, this one is the one that will be used in the first stage of sniffing in order to decode the captured packets (This will be further explained later on). 
 
 A bluetooth device can implement four different security modes:
   \begin{itemize}

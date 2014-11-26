@@ -6,16 +6,16 @@
 \contentsline {subsection}{\numberline {4.1}Bluetooth}{4}{subsection.4.1}
 \contentsline {subsubsection}{\numberline {4.1.1}Introduction}{4}{subsubsection.4.1.1}
 \contentsline {subsubsection}{\numberline {4.1.2}Bluetooth communication}{4}{subsubsection.4.1.2}
-\contentsline {subsubsection}{\numberline {4.1.3}Overview of Bluetooth security}{5}{subsubsection.4.1.3}
-\contentsline {subsubsection}{\numberline {4.1.4}Known Attacks on bluetooth}{6}{subsubsection.4.1.4}
-\contentsline {subsection}{\numberline {4.2}Ubertooth}{6}{subsection.4.2}
-\contentsline {subsubsection}{\numberline {4.2.1}Motivating the packet sniffing problem}{6}{subsubsection.4.2.1}
-\contentsline {subsubsection}{\numberline {4.2.2}The Ubertooth project}{6}{subsubsection.4.2.2}
-\contentsline {subsubsection}{\numberline {4.2.3}Finding the UAP}{7}{subsubsection.4.2.3}
-\contentsline {subsubsection}{\numberline {4.2.4}Finding the right clock}{8}{subsubsection.4.2.4}
-\contentsline {subsection}{\numberline {4.3}Sony Smartwatch SW2}{8}{subsection.4.3}
-\contentsline {section}{\numberline {5}Methodology}{8}{section.5}
-\contentsline {section}{\numberline {6}Results}{8}{section.6}
-\contentsline {section}{\numberline {7}Discussion}{8}{section.7}
-\contentsline {section}{\numberline {8}Conclusion}{9}{section.8}
-\contentsline {section}{\numberline {9}Future Work}{9}{section.9}
+\contentsline {subsubsection}{\numberline {4.1.3}Overview of Bluetooth security}{4}{subsubsection.4.1.3}
+\contentsline {subsubsection}{\numberline {4.1.4}Known Attacks on bluetooth}{5}{subsubsection.4.1.4}
+\contentsline {subsection}{\numberline {4.2}Ubertooth}{5}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {4.2.1}Motivating the packet sniffing problem}{5}{subsubsection.4.2.1}
+\contentsline {subsubsection}{\numberline {4.2.2}The Ubertooth project}{5}{subsubsection.4.2.2}
+\contentsline {subsubsection}{\numberline {4.2.3}Finding the UAP}{6}{subsubsection.4.2.3}
+\contentsline {subsubsection}{\numberline {4.2.4}Finding the right clock}{6}{subsubsection.4.2.4}
+\contentsline {subsection}{\numberline {4.3}Sony Smartwatch SW2}{6}{subsection.4.3}
+\contentsline {section}{\numberline {5}Methodology}{6}{section.5}
+\contentsline {section}{\numberline {6}Results}{6}{section.6}
+\contentsline {section}{\numberline {7}Discussion}{6}{section.7}
+\contentsline {section}{\numberline {8}Conclusion}{7}{section.8}
+\contentsline {section}{\numberline {9}Future Work}{7}{section.9}
