@@ -73,7 +73,7 @@ In SSP there are 6 different phases:
 	\item Public key exchange: Compute the private/public key using Diffie-Hellmann and give to each other their public keys. 
 	\item Authentication stage 1: The protocol will depend on which of the four association model has been chosen. The aim of this stage is to be sure that nobody can eavesdrop the connection. To do so, the devices exchange nonces (random numbers) and commitment to them before checking the integrity of the checksum using either OOB or the user himself as discussed earlier. 	
 	\item Authentication stage 2: There, the devices have exchanged their data and the integrity of each other is verified.
-	\itemLink key calculation: Using the previous steps, the Link key can be calculated (the DH key and nonces). It also needs the BD\_ADDR.
+	\item Link key calculation: Using the previous steps, the Link key can be calculated (the DH key and nonces). It also needs the BD\_ADDR.
 	\item Authentication and encryption: Now the encryption keys can be generated in order to encrypt all the data that will be exchanged between the two devices. 
 \end{enumerate}
  
