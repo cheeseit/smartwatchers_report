@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{graphicx,amsmath,listings,hyperref,color}
 \usepackage[english]{babel}
+\usepackage{enumitem}
 
 
 \begin{document} 
@@ -18,6 +19,10 @@
 
 \newpage
 
+\section*{Abstract}
+\input{sections/abstract.tex}
+\newpage
+
 \tableofcontents
 
 \newpage
@@ -27,12 +32,8 @@
 \newpage
 \section{Research Question}
 \input{sections/rq.tex} %To be checked
-\newpage
 \section{Ethics} %james
 \input{sections/ethics.tex}
-\newpage
-\section{Related work}
-\input{sections/related.tex}
 \newpage
 \section{Literature Review}
 \input{sections/related.tex}
@@ -46,14 +47,10 @@
 \section{Methodology}		%us 3
 \input{sections/method.tex} 
 	%How was the experiment conducted comparison between hci layer and RF communication
-	\subsection{Investigating the Bluetooth layers}
-		\input{sections/methodology/BTinvestigation.tex}		
-		
+	\subsection{Gathering data} %form the ubertooth and hci
+	\input{sections/methodology/BTinvestigation.tex}
 	\subsection{Comparing data}	%find the relevance of the data found
-		\input{sections/methodology/comparing.tex}\
-	
-	\subsection{Investigating the pairing process}
-		\input{sections/methodology/pairing.tex}
+	\input{sections/methodology/comparing.tex}
 \newpage
 \section{Results and discussion}
 \input{sections/result.tex}
@@ -63,8 +60,6 @@
 		\input{sections/results/problems.tex}
 		\subsection{Discussion}
 		\input{sections/results/discussion.tex}
-\newpage
-\section{Future Work}
 \newpage
 \input{sections/fw.tex}
 \section{Conclusion}

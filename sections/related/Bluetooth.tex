@@ -12,45 +12,57 @@ The version 2.1 + EDR (2007) is not bringing any new speed but despite that, its
 Currently, the latest version of Bluetooth is 4.1 that is known as Bluetooth Low Energy (BT-LE). As its name says, BT-LE was designed to reduce power consumption while providing the same communication range and speed that were used in the previous versions. \\
 The case study in this project is however not using this latest version, but the Bluetooth 3.0 + HS (High Speed) which was released in 2009, this version is  the first one providing a high data transfer speed that can go up to 24 Mbit/s. It is able to provide such a speed by using the famous 802.11 wireless protocol, it uses a "go all out" policy which first uses normal Bluetooth communication for pairing process and when a file is wanted to be exchanged or whatsoever then it swaps to the wireless in order to provide this speed.\\
 
-\textbf{Device ID}\\
-The BD\_ADDR of a device is composed of 48 bits. This address is divided into three parts, the first one being called the UAP (Upper Address Part) which is 8 bits long combined as well as the Non-significant Address Part (NAP) being 16 bits long form together the manufacturer ship, or company\_id. The last part being 24 bits long is the Lower Address Part (LAP) almost uniquely identifying a device, this one is the one that will be used in the first stage of sniffing in order to decode the captured packets (This will be further explained later on). 
+\subsubsection{Device ID}
+
+The BD\_ADDR of a device is composed of 48 bits. \\
+This address is divided into three parts, the first one being called the UAP (Upper Address Part) which is 8 bits long and, combined with the second part, the Non-significant Address Part (NAP, 16 bits long), they form together the manufacturer ship, or company\_id. The last part is 24 bits long and is the Lower Address Part (LAP), almost uniquely identifying a device, this one will be used in the first stage of sniffing in order to decode the captured packets (This will be further explained later on). This is shown in the figure 1 below.
 
 \begin{figure}[!h]
   \begin{center}
 	\includegraphics[width=200px]{images/bd_addr.jpg}
 	\label{Bluetooth address}
+	\caption{Bluetooth address definition}
   \end{center}
 \end{figure}
-
+\newpage
 \subsubsection{Overview of Bluetooth security}
 
 The user sets the basic security in Bluetooth. It has the choice between three different modes:
- \begin{itemize}
+ \begin{itemize}[noitemsep,nolistsep]
  	\item Silent: In this mode, the device will not initiate any connection. The only thing it does is monitoring the traffic.
  	\item Public: The device is discoverable by anyone around it having its bluetooth activated.
  	\item Private: The device will in that case only answer to device that it already paired with, thus making it (theoretically) only discoverable to known 
  \end{itemize}
 
-A Bluetooth device can implement four different security modes:
-  \begin{itemize}
+\noindent A Bluetooth device can implement four different security modes:
+
+  \begin{itemize}[noitemsep,nolistsep]
   	\item Non Secure: As its name suggests there is no security.
-  	\item Service-level enforced security mode: It establishes a non secure ACL (Asynchronous connectionless) 	link between the two devices willing to communicate. In order to introduce optional encryption, authentication and authorization, a request has to be made via L2CAP (Logical Link Control and Adaptation Protocol) connection-oriented or connection-less channel.
+  	\item Service-level enforced security mode: It establishes a non secure ACL (Asynchronous connectionless) link between the two devices willing to communicate. In order to introduce optional encryption, authentication and authorization, a request has to be made via L2CAP (Logical Link Control and Adaptation Protocol) connection-oriented or connection-less channel. This mode is used in versions 2.0 + EDR and below.
   	\item Link level enforced security mode: Once the ACL links are done then security procedures are initiated.
-  	\item Service-level enforced security mode: This one is very similar to the second mode except that it introduces SSP (Secure Simple Pairing) and this is compatible only with Bluetooth versions from 2.1 + EDR.
+  	\item Service-level enforced security mode: This one is very similar to the second mode except that it introduces SSP (Secure Simple Pairing) and this is compatible only with Bluetooth versions from 2.1 + EDR.\\
   \end{itemize}
-  
 
-\textbf{Pairing process}
+\subsubsection{Pairing process}
 
-SSP has been implemented in order to overcome the weakness of the 4 digits pass at pairing time (only about 10.000 possibilities max). Indeed, using an elaborated Bluetooth sniffer would allow to almost instantly find these digits and then bypassing the security in addition to make the pairing process easier than it used to be.
+As it is briefly explained earlier, SSP has been implemented in order to overcome the weakness of the 4 digits pass at pairing time (only about 10.000 possibilities max) in addition to make the pairing process easier than it used to be. Indeed, using an elaborated Bluetooth sniffer would allow to almost instantly find these digits and then bypassing the security.\\
 	
-Two devices pair by creating a shared key, called the Link key. The key will be used to authenticate and encrypt the data of two devices.
+Two devices pair by creating a shared key, called the Link key. This key will be used to authenticate and encrypt the data of two devices.
 In order to do so, there are two possibilities: LMP-pairing (4-digits/pincode manner) or SSP. \\
-Once this done, the two devices can store their mutual key in order to use it later for a re-pairing, making the connection much faster.
+Once this done, the two devices can store their mutual key in order to use it later for a re-pairing, making the connection much faster.\\
 
 In LMP-pairing, the only thing that is not transmitted through the air is the 4 digits PIN code. The pairing process in this case works as follow: \\
-The initiator will first generate a 16-bytes random number and then send it to the other device. Once received, both users will put in their PIN code which they will use to create an initialization key, the later will be converted into the actual LMP key. The two devices have to authenticate each other with their respective LMP key. \\
-A software created by Ellisis [XXX] allows an attacker that listens to the traffic to guess with the given information the 4 digits, thus making LMP useless. 
+The initiator will first generate a 16-bytes random number and then send it to the other device. Once received, both users will put in their PIN code which they will use to create an initialization key, the later will be converted into the actual LMP key. Then the two devices have to authenticate each other with their respective newly created LMP key. \\
+A software created by Ellisis [XXX] allows an attacker that listens to the traffic to guess with the given information the 4 digits, thus making LMP useless. \\
+An overview of the previously explained LMP pairing process is shown in figure 2 below \textit{From ellisys paper in links}: 
+\begin{figure}[!h]
+  \begin{center}
+	\includegraphics[width=400px]{images/lmppairing.png}
+	\label{LMP pairing}
+	\caption{LMP pairing process}
+  \end{center}
+\end{figure}
+
 
 SSP was then created, fixing the above vulnerability even though we can still find this mechanism in many devices for backward compatibilities. \\
 SSP is a new manner of generating a link key (and user numbers such as PIN codes can still be used) using Elliptic Curve in order to create in this situation a much bigger random number now setting the number of possible Link keys to \(2^{128}\) which is far too big to be brute forced, nowadays anyway. 
@@ -69,7 +81,7 @@ The numeric comparison association model which is the first case above, asking t
 Finally, if one of the device has neither input nor output, and that OOB can't be used, then the JustWork association model is used, which is the weakest model as it simply asks the user to accept the connection. 
 
 In SSP there are 6 different phases:
-\begin{enumerate}
+\begin{enumerate}[noitemsep,nolistsep]
 	\item Capabilities exchange: discovering devices or re-pairing ones will exchange their input/output capabilities.
 	\item Public key exchange: Compute the private/public key using Diffie-Hellmann and give to each other their public keys. 
 	\item Authentication stage 1: The protocol will depend on which of the four association model has been chosen. The aim of this stage is to be sure that nobody can eavesdrop the connection. To do so, the devices exchange nonces (random numbers) and commitment to them before checking the integrity of the checksum using either OOB or the user himself as discussed earlier. 	
