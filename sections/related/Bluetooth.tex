@@ -5,7 +5,7 @@ Bluetooth operates in the 2.4 GHz frequency band and uses frequency-hopping spre
 Bluetooth is also using adaptive frequency-hopping spectrum (AFH), used to avoid crowded frequency in the channel spectrum.\\
 
 In order to fully understand Bluetooth technology, the older versions are described below to follow its evolution. The difference between versions were based on the \textit{"versions differences" from links} [XXX].
-In versions 1.X (released between 1994 and 2005), the transmissions could go to a speed up to a theoretical value of 1Mbps. Flow control and retransmission modes for L2CAP were added in the latest version (v1.2). These versions are now obsolete and nearly extinct.\\
+In versions 1.X (released between 1994 and 2005), the transmissions could go to a speed up to a theoretical value of 1Mbps. Flow control and retransmission modes for the Logical link control and adaptation protocol (L2CAP) were added in the latest version (v1.2). These versions are now obsolete and nearly extinct.\\
 Version 2.0 + EDR (Enhanced Data Rate) was released in 2004, it is the first version implementing this technology, speeding up the maximal speed to 3Mbps rather than 1Mbps.\\
 The version 2.1 + EDR (2007) is not bringing any new speed but despite that, its major improvement is to considerably improve the security of bluetooth. Indeed, SSP (Secure Simple Pairing) is introduced in order to make the pairing process simpler, quicker and safer. More explanations about SSP are given in the next part.\\
 Currently, the latest version of Bluetooth is 4.1 that is known as Bluetooth Low Energy (BT-LE). As its name says, BT-LE was designed to reduce power consumption while providing the same communication range and speed that were used in the previous versions. \\
@@ -13,12 +13,12 @@ The case study in this project is however not using this latest version, but the
 
 \subsubsection{Device ID}
 
-The BD\_ADDR of a device is composed of 48 bits. \\
+The Bluetooth address (BD\_ADDR) of a device is composed of 48 bits. \\
 This address is divided into three parts, the first one being called the UAP (Upper Address Part) which is 8 bits long and, combined with the second part, the Non-significant Address Part (NAP, 16 bits long), they form together the manufacturer ship, or company\_id. The last part is 24 bits long and is the Lower Address Part (LAP), almost uniquely identifying a device, this one will be used in the first stage of sniffing in order to decode the captured packets (This will be further explained later on). This is shown in the figure 1 below.
 
 \begin{figure}[!h]
   \begin{center}
-	\includegraphics[width=200px]{images/bd_addr.jpg}
+	\includegraphics[width=200px]{images/bd_addr.png}
 	\label{Bluetooth address}
 	\caption{Bluetooth address definition}
   \end{center}

@@ -6,10 +6,10 @@ This section describes the methodology followed to perform our analysis on Bluet
 The Ubertooth comes with some tools to help you use the Ubertooth. This is done by the host code which is provided by project Ubertooth. 
 The main tool we are using is \verb|ubertooth-rx|  this is the tool that we will be using the most. \verb|ubertooth-rx| is the tool that does all the hard stuff. It listens to all the packets send on the bandwidth and displays them. If you are using the default settings it will try to look for all the UAP of the devices. If you home in on a single device by using the option \verb|-l <LAP>| the tool will do a more in depth analysis. It will then use the given LAP and follow it. Then it will try to find UAP and the clock which will be explained in \ref{subsubsec:finding_uap}. When the program has found these two values it will have enough information to decrypt the packet. This packet will then be printed with. This is exactly where what we are looking for. \pend There is also a Kismet plug-in available which also uses \verb|ubertooth-rx|, but displays it in a better way in the Kismet interface. It also makes log files in pcap format which can then be used to analyse in Wireshark. The Kismet plug-in can only be used to discover all the Bluetooth devices in your neighbourhood and find their UAP. After it found the UAP it will not continue by trying to find the clock.
 
-\begin{table}
+\begin{table}[!h]
 \begin{tabular}{|l|l|}
 \hline
-Tool & description \\
+Tool & Description \\
 \hline
 \verb|ubertooth-rx| & Passively scan for all the Bluetooth devices and try to find the UAP for them. \\
 \hline
@@ -18,6 +18,6 @@ Tool & description \\
 \verb|ubertooth-btel| & The Ubertooth low energy tool. \\
 \hline
 \end{tabular}
-\caption{This a table of a few of the Ubertooth commands we have used.}
+\caption{Ubertooth commands used during this project}
 \label{tab:ubertooth_tools}
 \end{table}
