@@ -21,7 +21,7 @@ The Bluetooth stack has many layers. For this project the important layers are t
 		 
 \subsubsection{HCI layer}
 	% How we Gather data form the hci
-Due to increasing use of Bluetooth; Android, since Android 4.4, have added a functionality available for developers to sniff Bluetooth packets at the HCI layer. This tool permits to monitor Bluetooth traffic in forms of pcaps logs for Wireshark. \pend
-The HCI layer is just above the LMP layer where authentication and encryption/encapsulation takes place. The data and messages exchanged at that layer are then in clear text and packets are not encapsulated. Then they are easily identifiable and easy to monitor. \pend
-The experiments performed above at the RF layer have been performed in the same way (and at the same time) at the HCI layer. This as been done for analysis purposes.
+Due to increasing use of Bluetooth; Android, since Android 4.4, have added a functionality available for developers to sniff Bluetooth packets at the HCI layer. This tool permits to monitor Bluetooth traffic in forms of pcaps logs for Wireshark. These logs can be found in the root of your data directory and is called btsnoop\_hci\.log.\pend
+The HCI layer is just above the LMP layer where authentication and encryption/encapsulation takes place. The data and messages exchanged at this layer are in clear text and packets are not encapsulated. This makes them easily identifiable and easy to monitor. \pend
+The experiments performed above at the Physical layer have been performed in the same way (and at the same time) at the HCI layer. This as been done for analysis purposes.
 	
