@@ -65,7 +65,7 @@ An overview of the previously explained LMP pairing process is shown in figure 2
 \end{figure}
 
 
-SSP was then created, fixing the above vulnerability even though we can still find this mechanism in many devices for backward compatibilities. \\
+SSP was then created, fixing the above vulnerability even though it is still possible to find this mechanism in many devices for backward compatibilities. \\
 SSP is a new manner of generating a link key (and user numbers such as PIN codes can still be used) using Elliptic Curve in order to create in this situation a much bigger random number now setting the number of possible Link keys to \(2^{128}\) which is far too big to be brute forced, nowadays anyway. 
 
 In order to create a public/private key pair (DHKey), SSP uses the famous Diffie-Hellmann algorithm with a 192-bits random number. The public key is transmitted over the air and can be seen by anyone, the private key is however kept secret for obvious security needs. 
