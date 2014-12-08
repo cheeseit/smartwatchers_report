@@ -1,4 +1,4 @@
-The Bluetooth stack has many layers. For this project the important layers are the HCI, LMP, and the physical layer(Bluetooth Radio). As seen in figure \ref{fig:bt_stack}. We have already discussed the LMP in a earlier section. The HCI and the physical layer will be discussed here below.
+The Bluetooth stack has many layers. For this project the important layers are the HCI, LMP, and the physical layer(Bluetooth Radio). As seen in figure \ref{fig:bt_stack}. The LMP have already been discussed in an earlier section. The HCI and the physical layer will be discussed here below.
 
 \begin{figure}[h]
   \includegraphics[scale=0.8]{images/bluetoothstack.jpg}
@@ -10,7 +10,7 @@ The Bluetooth stack has many layers. For this project the important layers are t
 
 \subsubsection{Physical layer}
 	% How we Gather data form the ubertooth
-	In order to eavesdrop a Bluetooth communication we used the Ubertooth 1 tool presented above. This tool is able to decode packet from a targeted Bluetooth communication.
+	In order to eavesdrop a Bluetooth communication the Ubertooth 1 tool presented above have been used. This tool is able to decode packet from a targeted Bluetooth communication.
 	The LAP(Lower Address Part) was known for the two devices. As explained in the literature review the Ubertooth tool retrieve the important parameters (UAP, clocks) used to sniff a connection thanks to that address. Once the tool was able to sniff and fallow a communication between the two devices it was possible for it to decode packets.
 	In order to have relevant information the authors conducted experiments in a certain way. Indeed several captures have been performed recording:
 \begin{itemize}
