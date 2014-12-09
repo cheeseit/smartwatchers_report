@@ -1,9 +1,13 @@
-The purpose of looking at different layers is to correlate the packets from the RF with the packets from the HCI level. To compare them, the Ubertooth and bt\_snoop from the android device have been used. The information retrieved from both of the sources is then compared on the timestamps. Unfortunately, the packets on the HCI level have a higher level of abstraction and do not correlate to the packets that are sent over the bandwidth. The assumption made is that the timestamps that is at which the packet arrives at the Ubertooth is not much different from the timestamp that is seen in HCI.
+The purpose of looking at different layers is to correlate the packets from the RF with the packets from the HCI level. This is about the packets we do not know what they mean. These are the rogue packets. The POLL and NULL packages cannot be seen because they are handled in a lower level the LC as seen in figure \ref{fig:btstack}. But sometimes we get packets with different packet types. To compare these rogue packets, the Ubertooth and bt\_snoop from the android device have been used. The information retrieved from both of the sources is then compared on the timestamps. Unfortunately, the packets on the HCI level have a higher level of abstraction and do not correlate to the packets that are sent over the bandwidth. The assumption made is that the timestamps that is at which the packet arrives at the Ubertooth is not much different from the timestamp that is seen in HCI.
 \subsection{Comparing data experiment}
-The experiment that has been done to correlate the data is as follows:
+This is the experiment that has been done to correlate the data from the Ubertooth with the data we see in the HCI:
 \begin{itemize}
-\item hallo
+\item Install a slightly modified version of the example app called HelloActiveLowPowerActivity( the modification sends a message from the watch to android device once every second)
+\item Start \verb|ubertooth-rx -l <LAP -u <UAP|. We give also the UAP, because Ubertooth will not have to find the UAP any more. 
+\item Then start the smartwatch app that sends the messages
+\item Both HCI layer and the Physical layer will be logged.
 \end{itemize}
+We choose an interval of one second per message, because we want to send many messages. With this many messages we have a higher chance of finding the rogue packets we are interested in. Sending it faster than this will make it very hard to correlate anything, because there will be so events at the same timestamp that it will be impossible to correlate anything.
 %The two previous experiments have been done in the same way in order to be able to identify and correlate informations between the two layers.
 %Indeed, after analysing raw data from the Ubertooth it was quite straightforward to conclude that the data was encrypted and/or encapsulated. 
 %As the data sent over the air was not human readable, it was decided to monitor the same traffic two layers up (before encryption/encapsulation). The two results were then correlated to deduce what was done at the LMP.

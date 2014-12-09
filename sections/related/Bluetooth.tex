@@ -8,9 +8,9 @@ In order to fully understand Bluetooth technology, older versions need to be des
 In versions 1.X (released between 1994 and 2005), the transmissions could go to a speed up to a theoretical value of 1Mbps. Flow control and retransmission modes for the Logical link control and adaptation protocol (L2CAP) were added in the latest version (v1.2). These versions are now obsolete and nearly extinct.\\
 Version 2.0 + EDR (Enhanced Data Rate) was released in 2004, it is the first version implementing this technology, speeding up the maximal data rate transfer to 3Mbps rather than 1Mbps.\\
 The version 2.1 + EDR (2007) is not bringing any new speed but despite that, its major improvement is to considerably improve the security of Bluetooth. Indeed, SSP (Secure Simple Pairing) is introduced in order to make the pairing process simpler, quicker and safer. More explanations about SSP are given in the next part.\newpage
-The case study in this project is however not using this latest version, but the Bluetooth 3.0 + HS (High Speed) which was released in 2009, this version is  the first one providing a high data transfer speed that can go up to 24 Mbit/s. It is able to provide such a speed by using the famous 802.11 wireless protocol, it uses a "go all out" policy which first uses normal Bluetooth communication for pairing process and when a file is wanted to be exchanged or whatsoever,  it swaps to the wireless in order to provide this speed.\\
+The case study in this project is however not using this latest version, but the Bluetooth 3.0+HS (High Speed) which was released in 2009, this version is  the first one providing a high data transfer speed that can go up to 24 Mbit/s. It is able to provide such a speed by using the famous 802.11 wireless protocol, it uses a "go all out" policy which first uses normal Bluetooth communication for pairing process and when a file is wanted to be exchanged or whatsoever,  it swaps to the wireless in order to provide this speed.\\
 Currently, the latest version of Bluetooth is 4.1 which is known as Bluetooth Low Energy (BT-LE). As its name says, BT-LE was designed to reduce power consumption while providing the same communication range and speed that were used in the previous versions. This version also is simpler than the 3.0 and uses AES to encrypt data. However, it is less secure due to its simplicity and this version has proven MiTM attacks [XXX].\\
-The information provided further in this report about Bluetooth technology is concerning the version 3.0 + HS, although it may be applicable in other versions as well.
+The information provided further in this report about Bluetooth technology is concerning the version 3.0+HS, although it may be applicable in other versions as well.
 
 \subsubsection{Device ID}
 
@@ -76,13 +76,12 @@ From there, the rest of the pairing process is similar to the LMP-pairing.
 \textbf{SAFER+ \& Protection against MiTM with SSP}\\
 
 While BTLE uses AES, the older Bluetooth versions up to the 3.0+HS are using SAFER+ (Secure and Fast Encryption Routine) in order to provide authentication and key generation.\\
-SAFER+ was candidate to the AES process and like it, it is a family of block ciphers using rounds  and a block size of 128 bits.\\
-In bluetooth, SAFER+ is used for key derivation and authentication.\\
-This algorithm  uses a non-orthodox linear transformation in order to provide diffusion. It also use additive constant factors in order to avoid weak key generation.\\
+SAFER+ was candidate to the AES process and like it, it is a family of block ciphers using rounds and a block size of 128 bits.\\
+In Bluetooth, SAFER+ is used for key derivation and authentication.\\
+This algorithm uses a non-orthodox linear transformation in order to provide diffusion. It also use additive constant factors in order to avoid weak key generation.\\
 Like in AES, it has two main components. The key-scheduling unit which is used in order to provide the round keys on the fly. The second one is called encryption data path, the latter will mix the plaintext with the "feedback" data from the previous rounds.\\
 
-
-In order to be protected against MiTM attacks, the device can use the user (e.g. to compare two numbers) or Out Of Band (OOB) channel (NFC for example, used to check the integrity of a checksum), these two cases are two of the four association models of SSP. 
+In order to be protected against MiTM attacks, the device can use the user (e.g. to compare two numbers) or Out Of Band (OOB) channel (NFC for example, used to check the integrity of a checksum), these two cases are two of the four association models of SSP.
 Let's define these models:\\
 The numeric comparison association model which is the first case above, asking the user to compare numbers.\\
 The Passkey Entry association model which is used when one of the device has input capabilities but no displays, in this case only the user with input capabilities will answer the 6-digit pass code.\\
