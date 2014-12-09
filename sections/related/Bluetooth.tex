@@ -81,7 +81,7 @@ In Bluetooth, SAFER+ is used for key derivation and authentication.\\
 This algorithm uses a non-orthodox linear transformation in order to provide diffusion. It also use additive constant factors in order to avoid weak key generation.\\
 Like in AES, it has two main components. The key-scheduling unit which is used in order to provide the round keys on the fly. The second one is called encryption data path, the latter will mix the plaintext with the "feedback" data from the previous rounds.\\
 
-In order to be protected against MiTM attacks, the device can use the user (e.g. to compare two numbers) or Out Of Band (OOB) channel (NFC for example, used to check the integrity of a checksum), these two cases are two of the four association models of SSP.
+In order to be protected against MiTM attacks, the device can use the user (e.g. to compare two numbers) or Out Of Band (OOB) channel (NFC for example, used to check the integrity of a checksum), these two cases are two of the four association models of SSP. 
 Let's define these models:\\
 The numeric comparison association model which is the first case above, asking the user to compare numbers.\\
 The Passkey Entry association model which is used when one of the device has input capabilities but no displays, in this case only the user with input capabilities will answer the 6-digit pass code.\\
