@@ -1,0 +1,32 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Research Question}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Ethics}{section.1}% 3
+\BOOKMARK [1][-]{section.2}{Literature Review}{}% 4
+\BOOKMARK [2][-]{subsection.2.1}{Bluetooth}{section.2}% 5
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Bluetooth communication}{subsection.2.1}% 6
+\BOOKMARK [3][-]{subsubsection.2.1.2}{Device ID}{subsection.2.1}% 7
+\BOOKMARK [3][-]{subsubsection.2.1.3}{Overview of Bluetooth security}{subsection.2.1}% 8
+\BOOKMARK [3][-]{subsubsection.2.1.4}{Pairing process}{subsection.2.1}% 9
+\BOOKMARK [2][-]{subsection.2.2}{Ubertooth}{section.2}% 10
+\BOOKMARK [3][-]{subsubsection.2.2.1}{Finding the UAP}{subsection.2.2}% 11
+\BOOKMARK [2][-]{subsection.2.3}{Sony Smartwatch SW2}{section.2}% 12
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Smartwatch applications}{subsection.2.3}% 13
+\BOOKMARK [1][-]{section.3}{Methodology}{}% 14
+\BOOKMARK [2][-]{subsection.3.1}{The Ubertooth Tools}{section.3}% 15
+\BOOKMARK [2][-]{subsection.3.2}{The Bluetooth stack}{section.3}% 16
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Physical layer}{subsection.3.2}% 17
+\BOOKMARK [3][-]{subsubsection.3.2.2}{HCI layer}{subsection.3.2}% 18
+\BOOKMARK [2][-]{subsection.3.3}{Comparing data}{section.3}% 19
+\BOOKMARK [2][-]{subsection.3.4}{Comparing data experiment}{section.3}% 20
+\BOOKMARK [2][-]{subsection.3.5}{Investigating the pairing process}{section.3}% 21
+\BOOKMARK [1][-]{section.4}{Results and discussion}{}% 22
+\BOOKMARK [2][-]{subsection.4.1}{Traffic investigation}{section.4}% 23
+\BOOKMARK [3][-]{subsubsection.4.1.1}{RF layer}{subsection.4.1}% 24
+\BOOKMARK [3][-]{subsubsection.4.1.2}{HCI layer}{subsection.4.1}% 25
+\BOOKMARK [3][-]{subsubsection.4.1.3}{Correlation of the two layers}{subsection.4.1}% 26
+\BOOKMARK [2][-]{subsection.4.2}{The rogue packets}{section.4}% 27
+\BOOKMARK [2][-]{subsection.4.3}{Problems encountered}{section.4}% 28
+\BOOKMARK [1][-]{section.5}{Conclusion and Future work}{}% 29
+\BOOKMARK [1][-]{appendix.A}{Pairing}{}% 30
+\BOOKMARK [1][-]{appendix.B}{Ubertooth}{}% 31
+\BOOKMARK [1][-]{appendix.C}{Rogue packets}{}% 32

@@ -1,0 +1,19 @@
+\begin{thebibliography}{1}
+
+\bibitem{sw2getstarted}
+Get started.
+\newblock
+  \url{https://developer.sony.com/develop/wearables/smartwatch-2-apis/get-started/}.
+\newblock Accessed: 2014-12-09.
+
+\bibitem{chai20126}
+Elaina Chai, Ben Deardorff, and Cathy Wu.
+\newblock 6.858: Hacking bluetooth.
+\newblock 2012.
+
+\bibitem{hitbox_mike_ryan}
+Mike Ryan.
+\newblock Bluetooth smart.
+\newblock In {\em Hack In The Box Malaysia}, Malaysia, 2014. HITBOX.
+
+\end{thebibliography}

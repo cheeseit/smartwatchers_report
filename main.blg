@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2012/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+The style file: plain.bst
+Database file #1: bib.bib
+Warning--I didn't find a database entry for "mryan2014ble"
+Warning--to sort, need author or key in sw2getstarted
+Warning--empty journal in chai20126
+You've used 3 entries,
+            2118 wiz_defined-function locations,
+            513 strings with 4285 characters,
+and the built_in function-call counts, 707 in all, are:
+= -- 67
+> -- 26
+< -- 0
++ -- 11
+- -- 8
+* -- 35
+:= -- 121
+add.period$ -- 10
+call.type$ -- 3
+change.case$ -- 13
+chr.to.int$ -- 0
+cite$ -- 5
+duplicate$ -- 31
+empty$ -- 67
+format.name$ -- 8
+if$ -- 151
+int.to.chr$ -- 0
+int.to.str$ -- 3
+missing$ -- 2
+newline$ -- 18
+num.names$ -- 4
+pop$ -- 25
+preamble$ -- 1
+purify$ -- 10
+quote$ -- 0
+skip$ -- 17
+stack$ -- 0
+substring$ -- 15
+swap$ -- 2
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 12
+warning$ -- 2
+while$ -- 4
+width$ -- 4
+write$ -- 32
+(There were 3 warnings)

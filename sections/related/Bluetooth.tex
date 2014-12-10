@@ -66,14 +66,14 @@ An overview of the previously explained LMP pairing process is shown figure 2:
 
 
 SSP was then created, fixing the above vulnerability even though it is still possible to find this mechanism in many devices for backward compatibilities. \\
-SSP is a new manner of generating a Link key by using Elliptic Curve. With Elliptic Curve it is possible to create a much bigger random number. Now the number of possible Link keys is $2^{128}$. This number is far too big to be brute forced. 
+SSP is a new manner of generating a Link key by using Elliptic Curve. With this, it is possible to create a much bigger random number allowing a range of possible Link keys is $2^{128}$. This number is far too big to be brute forced. 
 
 In order to create a public/private key pair (DHKey), SSP uses the famous Diffie-Hellmann algorithm with a 192-bits random number. The public key is transmitted over the air and can be seen by anyone, the private key is however kept secret for obvious security needs. 
 Using two given key pairs A and B, there is a function that allows to result in a DHKey and only the two devices should be able to find it out. This function is F(Public A, Private B)=F(Public B, Private A). This very DHKey will be used in order to create the link key in between the two devices. \\ 
 From there, the rest of the pairing process is similar to the LMP-pairing.
 
 \newpage
-\textbf{SAFER+ \& Protection against MiTM with SSP}\\
+\textbf{SAFER+ and protection against MiTM with SSP}\\
 
 While BTLE uses AES, the older Bluetooth versions up to the 3.0+HS are using SAFER+ (Secure and Fast Encryption Routine) in order to provide authentication and key generation.\\
 SAFER+ was candidate to the AES process and like it, it is a family of block ciphers using rounds and a block size of 128 bits.\\

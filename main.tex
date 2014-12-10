@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage{graphicx,amsmath,listings,hyperref,color,caption}
 \usepackage[english]{babel}
-\usepackage{enumitem}
+\usepackage{enumitem,cite}
 
 
 \begin{document} 
@@ -20,7 +20,9 @@
 \end{figure}
 
 \newpage
-
+\section*{Abstract}
+\input{sections/abstract.tex}
+\newpage
 \tableofcontents
 
 \newpage
@@ -31,11 +33,6 @@
 
 \section{Introduction}
 \input{sections/introduction.tex} %james
-\newpage
-\section{Research Question}
-\input{sections/rq.tex} %To be checked
-\section{Ethics} %james
-\input{sections/ethics.tex}
 \newpage
 \section{Literature Review}
 \input{sections/related.tex}
@@ -49,6 +46,7 @@
 \section{Methodology}		%us 3
 \input{sections/method.tex} 
 	%How was the experiment conducted comparison between hci layer and RF communication
+	\newpage
 	\subsection{The Bluetooth stack}
 		\input{sections/methodology/BTinvestigation.tex}		
 		
@@ -60,20 +58,22 @@
 \newpage
 \section{Results and discussion}
 \input{sections/result.tex}
-		\input{sections/results/resultanalysis.tex}
+		\input{sections/results/resultanalysis.tex}		
+		\newpage
 		\subsection{Problems encountered}
 		\input{sections/results/problems.tex}
 \newpage
 \section{Conclusion and Future work}
 \input{sections/conclusion.tex}
-
 \newpage
-
-\vspace*{2\baselineskip} % Whitespace between location/year and editors
+%\vspace*{2\baselineskip} % Whitespace between location/year and editors
 
 
 \bibliography{bib}{}
 \bibliographystyle{plain}
+
+
+\newpage
 
 \appendix
 \section{Pairing}

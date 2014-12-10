@@ -1,0 +1,33 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Introduction}{4}{section.1}
+\contentsline {subsection}{\numberline {1.1}Research Question}{5}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Ethics}{5}{subsection.1.2}
+\contentsline {section}{\numberline {2}Literature Review}{6}{section.2}
+\contentsline {subsection}{\numberline {2.1}Bluetooth}{6}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}Bluetooth communication}{6}{subsubsection.2.1.1}
+\contentsline {subsubsection}{\numberline {2.1.2}Device ID}{7}{subsubsection.2.1.2}
+\contentsline {subsubsection}{\numberline {2.1.3}Overview of Bluetooth security}{8}{subsubsection.2.1.3}
+\contentsline {subsubsection}{\numberline {2.1.4}Pairing process}{8}{subsubsection.2.1.4}
+\contentsline {subsection}{\numberline {2.2}Ubertooth}{11}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}Finding the UAP}{11}{subsubsection.2.2.1}
+\contentsline {subsection}{\numberline {2.3}Sony Smartwatch SW2}{12}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}Smartwatch applications}{13}{subsubsection.2.3.1}
+\contentsline {section}{\numberline {3}Methodology}{14}{section.3}
+\contentsline {subsection}{\numberline {3.1}The Ubertooth Tools}{14}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}The Bluetooth stack}{15}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Physical layer}{16}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}HCI layer}{16}{subsubsection.3.2.2}
+\contentsline {subsection}{\numberline {3.3}Comparing data}{16}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Comparing data experiment}{17}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}Investigating the pairing process}{17}{subsection.3.5}
+\contentsline {section}{\numberline {4}Results and discussion}{18}{section.4}
+\contentsline {subsection}{\numberline {4.1}Traffic investigation}{18}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}RF layer}{18}{subsubsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.2}HCI layer}{18}{subsubsection.4.1.2}
+\contentsline {subsubsection}{\numberline {4.1.3}Correlation of the two layers}{19}{subsubsection.4.1.3}
+\contentsline {subsection}{\numberline {4.2}The rogue packets}{19}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Problems encountered}{20}{subsection.4.3}
+\contentsline {section}{\numberline {5}Conclusion and Future work}{21}{section.5}
+\contentsline {section}{\numberline {A}Pairing}{23}{appendix.A}
+\contentsline {section}{\numberline {B}Ubertooth}{23}{appendix.B}
+\contentsline {section}{\numberline {C}Rogue packets}{23}{appendix.C}
