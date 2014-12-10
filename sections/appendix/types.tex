@@ -1,0 +1,16 @@
+
+\begin{table}[h!]
+\label{tab:typetable}
+\begin{tabular}{|l|l|}
+\hline
+DM1 & Specifies that the packet type is DM1. The DM1 packet carries only data information. The information and CRC bits are coded with a rate 2/3 FEC. The DM1 packet occupies a single time slot. \\ \hline
+DH1 &  This packet is similar to DM1 packet, except that the information in the payload is not FEC encoded. The DH1 packet occupies a single time slot.  \\ \hline
+AUX1 & This packet resembles a DH1 packet but has no CRC code. \\ \hline
+DH5 &  This packet has a payload up to 226 information bytes (including the 2-byte payload header), inclusive, and a 16-bit CRC code. The information in the payload is not FEC encoded. \\ \hline
+3-DH5 & Similar to DH5 packet except that the payload is modulated using 8DPSK. \\ \hline
+HV1 &  The HV1 packet has 10 information bytes. \\ \hline
+DV & The DV packet is a combined data-voice packet. \\ \hline
+3-DH1 & Similar to DH3 packet except that the payload is modulated using 8DPSK. \\ \hline
+\end{tabular}
+\caption{Message type explanation}
+\end{table}
