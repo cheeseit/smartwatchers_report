@@ -41,11 +41,14 @@ The basic security in Bluetooth is set up by the user, he has the choice between
   	\item Non Secure: As its name suggests there is no security.
   	\item Service-level enforced security mode: It establishes a non secure ACL (Asynchronous connectionless) link between the two devices willing to communicate. In order to introduce optional encryption, authentication and authorization, a request has to be made via L2CAP (Logical Link Control and Adaptation Protocol) connection-oriented or connection-less channel. This mode is used in versions 2.0 + EDR and below.
   	\item Link level enforced security mode: Once the ACL links are done then security procedures are initiated.
-  	\item Service-level enforced security mode: This one is very similar to the second mode except that it introduces SSP (Secure Simple Pairing) and this is compatible only with Bluetooth versions from 2.1 + EDR.
+  	\item Service-level enforced security mode: This one is very similar to the second mode except that it introduces SSP (Secure Simple Pairing) and this is compatible only with Bluetooth versions from 2.1 + EDR.\\
   \end{itemize}
+  
+\noindent This section is based on the reference \cite{btsecoverview}.
 
 \subsubsection{Pairing process}
 \label{subsubsec:pairingprocess}
+
 SSP has been implemented in order to overcome the weakness of the 4 digits pass at the pairing time (only about 10.000 possibilities max) in addition to making the pairing process easier. \\
 %Indeed, using an elaborated Bluetooth sniffer would allow to almost instantly find these digits and then bypassing the security.
 
@@ -58,7 +61,7 @@ A software created by Ellisys \cite{ellisys} allows an attacker that listens to 
 An overview of the previously explained LMP pairing process is shown figure 2: 
 \begin{figure}[!h]
   \begin{center}
-	\includegraphics[width=350px]{images/haha.png}
+	\includegraphics[width=320px]{images/haha.png}
 	\label{LMP pairing}
 	\caption{LMP pairing process}
 	\caption*{\url{http://www.ellisys.com/technology/een_bt07.pdf}}
@@ -70,9 +73,11 @@ An overview of the previously explained LMP pairing process is shown figure 2:
 SSP was then created, fixing the above vulnerability even though it is still possible to find this mechanism in many devices for backward compatibilities. \\
 SSP is a new manner of generating a Link key by using Elliptic Curve. With this, it is possible to create a much bigger random number allowing a range of possible Link keys of $2^{128}$. This number is far too big to be brute forced. 
 
-In order to create a public/private key pair (DHKey), SSP uses the famous Diffie-Hellmann algorithm with a 192-bits random number. The public key is transmitted over the air and can be seen by anyone, the private key is however kept secret for obvious security needs. 
-Using two given key pairs A and B, there is a function that allows to result in a DHKey and only the two devices should be able to find it out. This function is F(Public A, Private B)=F(Public B, Private A). This very DHKey will be used in order to create the link key in between the two devices. \\ 
-From there, the rest of the pairing process is similar to the LMP-pairing.
+In order to create a public/private key pair (DHKey), SSP uses the Diffie-Hellmann algorithm with a 192-bits random number. The public key is transmitted over the air and can be seen by anyone, the private key is kept secret for obvious needs. 
+Using two given key pairs A and B, there is a function that allows to result in a DHKey and only the two devices should be able to find it out (also used to create the Link Key): F(Public A, Private B)=F(Public B, Private A). \\ 
+From there, the rest of the pairing process is similar to the LMP-pairing.\\
+
+\noindent The information provided in the following are based on \cite{btsecoverview}, \cite{pairmech} and \cite{ellisys}
 
 \newpage
 \textbf{SAFER+ and protection against MiTM with SSP}\\
