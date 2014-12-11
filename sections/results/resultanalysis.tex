@@ -32,12 +32,7 @@ From there, it is true to say that the communication is encrypted, encapsulated 
 
 %Why cant we correlate the packet seen on Rf to hci? 
 %Maybe we should trey to decrypt a packet using the key we found nat the hci. Just to proove that it is possible to decrypt the packets if we would have the key. ANd we would have the key maybe if the ubertooth was doing what we did.
-Firstly the POLL and NULL packet are not available at the HCI layer. They are destined and processed at the link controller layer so they cannot be seen.
-
-\textbf{The 6 other types of packets found can or cannot be correlated?}
-
-Another thing that can be highlighted from the pairing process on the HCI, is that the master and the slave exchange information about what kind of packets are allowed during the communication. During this exchange the connection set up these packet types are disallowed. As you can see in appendix \ref{app:pairing}.  \pend
-
+Firstly the POLL and NULL packet are not available at the HCI layer. They are destined and processed at the link controller layer so they cannot be seen. With this said these package will have no effect on the correlation between what is seen on the Ubertooth and in the HCI. More interesting are the other packages mentioned in 
 
 \subsection{The rogue packets}
 As already mentioned, there are some packets we cannot place. These are packets that can be found by the Ubertooth, but cannot be detected by the HCI. These messages are handled in the LC see figure \ref{subsubsec:rflayer}.
