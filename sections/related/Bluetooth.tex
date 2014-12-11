@@ -5,7 +5,7 @@ Bluetooth operates in the 2.4 GHz frequency band and uses frequency-hopping spre
 Bluetooth is also using adaptive frequency-hopping spectrum (AFH), used to avoid crowded frequency in the channel spectrum.\\
 
 In order to fully understand Bluetooth technology, older versions need to be described. The difference between versions were based on \cite{btdiff} and Wikipedia \cite{btwiki}.\\
-In versions 1.X (released between 1994 and 2005), the transmissions could go to a speed up to a theoretical value of 1Mbps. Flow control and retransmission modes for the Logical link control and adaptation protocol (L2CAP) were added in the latest version (v1.2). These versions are now obsolete and nearly extinct.\\
+In versions 1.X (released between 1994 and 2005), the transmissions could go up to a theoretical speed of 1Mbps. Flow control and retransmission modes for the Logical Link Control and Adaptation Protocol (L2CAP) were added in the latest version (v1.2). These versions are now obsolete and nearly extinct.\\
 Version 2.0 + EDR (Enhanced Data Rate) was released in 2004, it is the first version implementing this technology, speeding up the maximal data rate transfer to 3Mbps rather than 1Mbps.\\
 The version 2.1 + EDR (2007) is not bringing any new speed but despite that, its major improvement is to considerably improve the security of Bluetooth. Indeed, SSP (Secure Simple Pairing) is introduced in order to make the pairing process simpler, quicker and safer. More explanations about SSP are given in the next part.\newpage
 The case study in this project is however not using this latest version, but the Bluetooth 3.0+HS (High Speed) which was released in 2009, this version is  the first one providing a high data transfer speed that can go up to 24 Mbit/s. It is able to provide such a speed by using the famous 802.11 wireless protocol, it uses a "go all out" policy which first uses normal Bluetooth communication for pairing process and when a file is wanted to be exchanged or whatsoever,  it swaps to the wireless in order to provide this speed.\\
@@ -45,9 +45,10 @@ The basic security in Bluetooth is set up by the user, he has the choice between
   \end{itemize}
 
 \subsubsection{Pairing process}
+\label{subsubsec:pairingprocess}
+SSP has been implemented in order to overcome the weakness of the 4 digits pass at the pairing time (only about 10.000 possibilities max) in addition to making the pairing process easier. \\
+%Indeed, using an elaborated Bluetooth sniffer would allow to almost instantly find these digits and then bypassing the security.
 
-As briefly explained earlier, SSP has been implemented in order to overcome the weakness of the 4 digits pass at pairing time (only about 10.000 possibilities max) in addition to making the pairing process easier. Indeed, using an elaborated Bluetooth sniffer would allow to almost instantly find these digits and then bypassing the security.\\
-	
 Two devices pair by creating a shared key, called the Link key. This key will be used to authenticate and encrypt the data of two devices.
 In order to do so, there are two possibilities: LMP-pairing (4-digits/pincode manner) or SSP. \\
 Once this done, the two devices can store their mutual key in order to use it later for a re-pairing, making the connection much faster.\\
@@ -64,9 +65,10 @@ An overview of the previously explained LMP pairing process is shown figure 2:
   \end{center}
 \end{figure}
 
+%Reference for SSP needed for the part underneath
 
 SSP was then created, fixing the above vulnerability even though it is still possible to find this mechanism in many devices for backward compatibilities. \\
-SSP is a new manner of generating a Link key by using Elliptic Curve. With this, it is possible to create a much bigger random number allowing a range of possible Link keys is $2^{128}$. This number is far too big to be brute forced. 
+SSP is a new manner of generating a Link key by using Elliptic Curve. With this, it is possible to create a much bigger random number allowing a range of possible Link keys of $2^{128}$. This number is far too big to be brute forced. 
 
 In order to create a public/private key pair (DHKey), SSP uses the famous Diffie-Hellmann algorithm with a 192-bits random number. The public key is transmitted over the air and can be seen by anyone, the private key is however kept secret for obvious security needs. 
 Using two given key pairs A and B, there is a function that allows to result in a DHKey and only the two devices should be able to find it out. This function is F(Public A, Private B)=F(Public B, Private A). This very DHKey will be used in order to create the link key in between the two devices. \\ 

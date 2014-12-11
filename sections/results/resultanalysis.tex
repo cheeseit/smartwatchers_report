@@ -1,6 +1,7 @@
 \subsection{Traffic investigation}
+This section describes the traffic analysis done on the RF layer and the HCI layer. The third section describes how the data found at the two layer have been tried to be correlated.
 \subsubsection{RF layer}
-Regarding the RF layer a few messages can be seen there. As shown in the appendix \ref{app:ubertooth} the most packets seen are the NULL and POLL messages, that are keep alive messages. During the captures the Ubertooth is only looking at channel 0 on which these packets are sent.
+Regarding the RF layer a few messages can be seen. As shown in the appendix \ref{app:ubertooth} the most packets seen are the NULL and POLL messages, that are keep alive messages. During the captures the Ubertooth is only looking at channel 0 on which these packets are sent.
 
 Some other packets are decoded by the Ubertooth and contains some data, the packets over the RF layer are of a different types. The packet decoded are of type DV/3-DH1, AUX1, AFH, DM1, HV1, DH5/3-DH5. An explanation of these packet types are explained in this appendix \ref{app:types} .
 
@@ -15,7 +16,7 @@ From the HCI captures, some conclusions can be drawn. Indeed, during the pairing
 	\caption{IO capabilities found during the pairing process at the HCI layer}
   \end{center}
 \end{figure}
-The pairing process analysing shows that the pairing process the watch and the phone is based on JustWork mechanism. Indeed, as shown in \ref{fig:io} the Smartwatch claim not to have any input or output and that it does not have OOB authentication then the two devices agree to set up their connection with the JustWork mechanism that involves automatic accept of the numeric comparison. This mechanism is not protected from a MiTM attack.
+The pairing process analysis shows that is based on JustWork mechanism. Indeed, as shown in \ref{fig:io} the Smartwatch claim not to have any input or output and that it does not have OOB authentication. Then the two devices agree to set up their connection with the JustWork mechanism that involves automatic accept of the numeric comparison. This mechanism is not protected from a MiTM attack \cite{MiTMjustworks}.
 
 Then the LMP parameters \ref{fig:lmp} are exchanged to choose the LMP parameters that will be used during this communication. 
 \begin{figure}[!h]
@@ -26,22 +27,22 @@ Then the LMP parameters \ref{fig:lmp} are exchanged to choose the LMP parameters
   \end{center}
 \end{figure}
 
-From there, it is true to say that the communication is encrypted, encapsulated and uses SSP. It is even possible to retrieve the link keys used for encryption at this level. The link keys are always updated after a new pairing.
+From there, it is true to say that the communication uses SSP and is encrypted and encapsulated. It is even possible to retrieve the link keys used for encryption at this level. The link keys are always updated after a new pairing.
 
 \subsubsection{Correlation of the two layers}
 
 %Why cant we correlate the packet seen on Rf to hci? 
 %Maybe we should trey to decrypt a packet using the key we found nat the hci. Just to proove that it is possible to decrypt the packets if we would have the key. ANd we would have the key maybe if the ubertooth was doing what we did.
-Firstly the PULL and NULL packet are not available at the HCI layer because they are destined at the link controller layer so they cannot be used to correlated any information. 
+Firstly the POLL and NULL packet are not available at the HCI layer because they are destined at the link controller layer so they cannot be used to correlated any information. 
 
 
 \textbf{The 6 other types of packets found can or cannot be correlated?}
 
-Another information that can be highlighted from the pairing process on the HCI, is that the master and the slave exchange information about what kind of packets are allowed during the communication. During this exchange the connection set up these packet types are disallowed. As you can see in appendix \ref{app:pairing}. The connection settings are set only to accept these kinds of packets shown. All the packets that are send over this channel which are not poll or null are disallowed types. The reason why these packets are sent is unknown and their presence will be discussed in the next section.  \pend
+Another information that can be highlighted from the pairing process on the HCI, is that the master and the slave exchange information about what kind of packets are allowed during the communication. During this exchange the connection set up these packet types are disallowed. As you can see in appendix \ref{app:pairing}. The connection settings are set only to accept these kinds of packets shown. All the packets that are send over this channel which are not POLL or NULL are disallowed types. The reason why these packets are sent is unknown and their presence will be discussed in the next section.  \pend
 
 
 \subsection{The rogue packets}
-As already mentioned, there are some packets we cannot place. These packets can be found by the Ubertooth, but cannot be detected by the HCI. The issue with looking at the HCI level is that not all packets are seen at the HCI level. As has been said in \ref{subsubsec:rflayer}. In fact, there may be some correlation, but it is not clear to guess that by just looking at them as a single set. A possible solution is to have a similar tool as the Ubertooth on the smartwatch to see what is sent at the same time. \\
+As already mentioned, there are some packets we cannot place. These packets can be found by the Ubertooth, but cannot be detected by the HCI. The issue with looking at the HCI level is that not all packets are seen at the HCI level. As it has been said in \ref{subsubsec:rflayer}. In fact, there may be some correlation, but it is not clear to guess that by just looking at them as a single set. A possible solution is to have a similar tool as the Ubertooth on the smartwatch to see what is sent at the same time. \\
 As seen in appendix \ref{app:roguepackets}, there is an explanation of what information we get about the packet.
 Looking at the first packet in appendix \ref{app:roguepackets} there are a few things that can be seen. The data is always doubled and the packet is divided in a few fields. Type, LT\_ADDR, flow, payload length and data. The first line contains some information about the packet. The most important values from this information are:
 \begin{itemize} 
@@ -50,5 +51,4 @@ Looking at the first packet in appendix \ref{app:roguepackets} there are a few t
 \end{itemize}
 The reason that the type has two values is that for different data rates the packet type can differ. The SW2 has no voice capabilities and knows high data transfer rate. In specifications table that can be found 308 in the last column. So the packet types will always be the latter of the two types given.
 The LLID is the (Logical Link Identifier)
-To analyse the payload the authors have tried to decode these packets using the key exchanged during the pairing process.
-%BUT WE FAILED/ ANALYSED HOW WE CAN DO THAT
+To analyse the payload the authors have tried to decode these packets using the key exchanged during the pairing process but have failed.
