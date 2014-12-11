@@ -32,23 +32,23 @@ From there, it is true to say that the communication is encrypted, encapsulated 
 
 %Why cant we correlate the packet seen on Rf to hci? 
 %Maybe we should trey to decrypt a packet using the key we found nat the hci. Just to proove that it is possible to decrypt the packets if we would have the key. ANd we would have the key maybe if the ubertooth was doing what we did.
-Firstly the PULL and NULL packet are not available at the HCI layer because they are destined at the link controller layer so they cannot be used to correlated any information. 
-
+Firstly the POLL and NULL packet are not available at the HCI layer. They are destined and processed at the link controller layer so they cannot be seen.
 
 \textbf{The 6 other types of packets found can or cannot be correlated?}
 
-Another information that can be highlighted from the pairing process on the HCI, is that the master and the slave exchange information about what kind of packets are allowed during the communication. During this exchange the connection set up these packet types are disallowed. As you can see in appendix \ref{app:pairing}. The connection settings are set only to accept these kinds of packets shown. All the packets that are send over this channel which are not poll or null are disallowed types. The reason why these packets are sent is unknown and their presence will be discussed in the next section.  \pend
+Another thing that can be highlighted from the pairing process on the HCI, is that the master and the slave exchange information about what kind of packets are allowed during the communication. During this exchange the connection set up these packet types are disallowed. As you can see in appendix \ref{app:pairing}.  \pend
 
 
 \subsection{The rogue packets}
-As already mentioned, there are some packets we cannot place. These packets can be found by the Ubertooth, but cannot be detected by the HCI. The issue with looking at the HCI level is that not all packets are seen at the HCI level. As has been said in \ref{subsubsec:rflayer}. In fact, there may be some correlation, but it is not clear to guess that by just looking at them as a single set. A possible solution is to have a similar tool as the Ubertooth on the smartwatch to see what is sent at the same time. \\
-As seen in appendix \ref{app:roguepackets}, there is an explanation of what information we get about the packet.
-Looking at the first packet in appendix \ref{app:roguepackets} there are a few things that can be seen. The data is always doubled and the packet is divided in a few fields. Type, LT\_ADDR, flow, payload length and data. The first line contains some information about the packet. The most important values from this information are:
+As already mentioned, there are some packets we cannot place. These are packets that can be found by the Ubertooth, but cannot be detected by the HCI. These messages are handled in the LC see figure \ref{subsubsec:rflayer}.
+Some examples are seen in appendix \ref{app:roguepackets}.
+Looking at the first packet in appendix \ref{app:roguepackets} there are a few things that can be seen. The packets with data are always doubled. The reason for this is unknown. The unwhitened packet is divided in a few fields. Type, LT\_ADDR, flow, payload length and data. The first line contains some information about the packet. The most important values from this information are:
 \begin{itemize} 
 \item The \textbf{ch}, this is the channel in which the packet was found.
 \item The \textbf{LAP}, which is the sender's lower address part.
 \end{itemize}
 The reason that the type has two values is that for different data rates the packet type can differ. The SW2 has no voice capabilities and knows high data transfer rate. In specifications table that can be found 308 in the last column. So the packet types will always be the latter of the two types given.
+The LT\ADDR is used to determine which is used by each receiving device to determine if the packet addressed to them, but it is also used ffor internal routing.
 The LLID is the (Logical Link Identifier)
 To analyse the payload the authors have tried to decode these packets using the key exchanged during the pairing process.
 %BUT WE FAILED/ ANALYSED HOW WE CAN DO THAT
