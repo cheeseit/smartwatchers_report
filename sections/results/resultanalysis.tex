@@ -43,7 +43,7 @@ Looking at the first packet in appendix \ref{app:roguepackets} there are a few t
 \item The \textbf{LAP}, which is the sender's lower address part.
 \end{itemize}
 The reason that the type has two values is that for different data rates the packet type can differ. The SW2 has no voice capabilities and knows high data transfer rate. In specifications table that can be found 308 in the last column. So the packet types will always be the latter of the two types given.
-The LT\ADDR is used to determine which is used by each receiving device to determine if the packet addressed to them, but it is also used ffor internal routing.
+The LT\_ADDR is used to determine which is used by each receiving device to determine if the packet addressed to them, but it is also used ffor internal routing.
 The LLID is the (Logical Link Identifier)
 To analyse the payload the authors have tried to decode these packets using the key exchanged during the pairing process.
 %BUT WE FAILED/ ANALYSED HOW WE CAN DO THAT
