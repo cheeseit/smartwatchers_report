@@ -7,15 +7,15 @@ Some other packets are decoded by the Ubertooth and contains some data, the pack
 The only valuable information that could be output from this data analysis is that the packets sent between the smartwatch and the phone are fragmented as they contain different LLID parameters (which specifies if the payload is the start or the continuation of a L2CAP or LMP message). The packets are also encrypted.
 
 \subsubsection{HCI layer}
-From the HCI captures, some conclusions can be drawn. Indeed, during the process, some parameters are negotiated regarding the future communication between the two devices. SSP introduces IO capabilities that permits to exchanged what would be the pairing model based on the capability of the master and slave device. 
+From the HCI captures, some conclusions can be drawn. Indeed, during the pairing process, some parameters are negotiated regarding the future communication between the two devices. SSP introduces IO capabilities that permits to exchanged what would be the pairing model based on the capability of the master and slave device. 
 \begin{figure}[!h]
   \begin{center}
-	\includegraphics[width=270px]{images/IO_PARAM.jpg}
+	\includegraphics[width=270px]{images/IO_PARAM.png}
 	\label{fig:io}
 	\caption{IO capabilities found during the pairing process at the HCI layer}
   \end{center}
 \end{figure}
-The pairing process analysing shows that the pairing process the watch and the phone is based on JustWork mechanism. Indeed as shown in \ref{fig:io} the Smartwatch claim not to have any input or output and that it does not have OOB authentication then the two devices accord to set up there connection with the JustWork mechanism that involves automatic accept of the numeric comparison. This mechanism is not protecting from a MiTM attack.
+The pairing process analysing shows that the pairing process the watch and the phone is based on JustWork mechanism. Indeed, as shown in \ref{fig:io} the Smartwatch claim not to have any input or output and that it does not have OOB authentication then the two devices agree to set up their connection with the JustWork mechanism that involves automatic accept of the numeric comparison. This mechanism is not protected from a MiTM attack.
 
 Then the LMP parameters \ref{fig:lmp} are exchanged to choose the LMP parameters that will be used during this communication. 
 \begin{figure}[!h]
@@ -26,8 +26,7 @@ Then the LMP parameters \ref{fig:lmp} are exchanged to choose the LMP parameters
   \end{center}
 \end{figure}
 
-From there, it is true to say that the communication is encrypted, encapsulated and uses SSP. It is even possible to retrieve the link keys used for encryption at this level. The link keys are always updated after a new pairing. 
-
+From there, it is true to say that the communication is encrypted, encapsulated and uses SSP. It is even possible to retrieve the link keys used for encryption at this level. The link keys are always updated after a new pairing.
 
 \subsubsection{Correlation of the two layers}
 
@@ -41,23 +40,15 @@ Firstly the PULL and NULL packet are not available at the HCI layer because they
 Another information that can be highlighted from the pairing process on the HCI, is that the master and the slave exchange information about what kind of packets are allowed during the communication. During this exchange the connection set up these packet types are disallowed. As you can see in appendix \ref{app:pairing}. The connection settings are set only to accept these kinds of packets shown. All the packets that are send over this channel which are not poll or null are disallowed types. The reason why these packets are sent is unknown and their presence will be discussed in the next section.  \pend
 
 
-
 \subsection{The rogue packets}
-As already mentioned, there are some packets we cannot place. These packets can be found by the Ubertooth, but cannot be detected by the HCI. One possibility is that these packets are not meant for the master device. Since the packet types are disallowed by the master it is quite possible, but then the question is why are these sent. Another explanation is that these packets are just the same polling and null packets, but they are just badly decrypted.
-There is no correlation to be found by comparing the different rogue packets. In fact, there may be some correlation, but it is not clear to guess that by just looking at them as a single set. A possible solution is to have an HCI sniffing tool on the smartwatch to see what is sent at the same time. \\
+As already mentioned, there are some packets we cannot place. These packets can be found by the Ubertooth, but cannot be detected by the HCI. The issue with looking at the HCI level is that not all packets are seen at the HCI level. As has been said in \ref{subsubsec:rflayer}. In fact, there may be some correlation, but it is not clear to guess that by just looking at them as a single set. A possible solution is to have a similar tool as the Ubertooth on the smartwatch to see what is sent at the same time. \\
 As seen in appendix \ref{app:roguepackets}, there is an explanation of what information we get about the packet.
-Looking at the first packet in appendix \ref{app:roguepackets} there are a few things that can be seen. The data is always doubled and the packet is divided in a few fields. Type, LT\_ADDR, flow, payload length and data where the first line contains some information about the packet. The most important values from this information are:
+Looking at the first packet in appendix \ref{app:roguepackets} there are a few things that can be seen. The data is always doubled and the packet is divided in a few fields. Type, LT\_ADDR, flow, payload length and data. The first line contains some information about the packet. The most important values from this information are:
 \begin{itemize} 
 \item The \textbf{ch}, this is the channel in which the packet was found.
 \item The \textbf{LAP}, which is the sender's lower address part.
 \end{itemize}
-%Explain the packet. 
-
+The reason that the type has two values is that for different data rates the packet type can differ. The SW2 has no voice capabilities and knows high data transfer rate. In specifications table that can be found 308 in the last column. So the packet types will always be the latter of the two types given.
+The LLID is the (Logical Link Identifier)
 To analyse the payload the authors have tried to decode these packets using the key exchanged during the pairing process.
 %BUT WE FAILED/ ANALYSED HOW WE CAN DO THAT
-
-\subsection{Discussion}
-It has been proven that the Ubertooth is not relevant for eavesdropping a Bluetooth 3.0 communication between a smartwatch and a phone. Indeed it is not able to follow all the communication exchanged. However some interesting point came up when investigating the HCI layer.
-First of all the smartwatch is using the JustWork protocol. Which means that no PIN code exchanged/comparison is needed between the two devices. That makes the pairing process weak against MiTM attack.
-Then it is possible to determine from the HCI layer that the data exchanged is encrypted and encapsulated using a link key (derived from different parameters during the pairing process). 
-As the Ubertooth does not permits to eavesdrop a 3.0 communication it is not possible to retrieve this informations over the air. However a solution could be to use a proprietary tool such as the FTS4BT Frontline sniffer \cite{FTS4BT} that are able to sniff any Bluetooth protocols. The only issue with this hardware is that it is really expensive. Then it was not possible to acquire this kind of hardware for this project due to budget issue. 
