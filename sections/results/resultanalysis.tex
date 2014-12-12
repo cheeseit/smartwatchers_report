@@ -20,17 +20,17 @@ From the HCI captures, some conclusions can be drawn. Indeed, during the pairing
 \end{figure}
 The pairing process analysis shows that is based on JustWork mechanism. Indeed, as shown in \ref{fig:io} the Smartwatch claim not to have any input or output and that it does not have OOB authentication. Then the two devices agree to set up their connection with the JustWork mechanism that involves automatic accept of the numeric comparison. This mechanism is not protected from a MiTM attack \cite{MiTMjustworks}.
 
-Then the LMP parameters \ref{fig:lmp} are exchanged to choose the LMP parameters that will be used during this communication. 
+Then the LMP parameters are exchanged (see figure 7 below) to choose the LMP parameters that will be used during this communication. 
 \begin{figure}[!h]
   \begin{center}
-	\includegraphics[width=270px]{images/LMP_PARAM.jpg}
+	\includegraphics[width=350px]{images/LMP_PARAM.jpg}
 	\label{fig:lmp}
 	\caption{LMP Parameters found during the pairing process at the HCI layer}
   \end{center}
 \end{figure}
 
 From there, it is true to say that the communication uses SSP and is encrypted and encapsulated. It is even possible to retrieve the link keys used for encryption at this level. The link keys are always updated after a new pairing.
-
+\newpage
 \subsubsection{Correlation of the two layers}
 
 %Why cant we correlate the packet seen on Rf to hci? 
