@@ -1,22 +1,2 @@
-This section describes the methodology followed to perform the analysis on Bluetooth communication. First the tools that the Ubertooth has will be discussed. The next two parts will present the different layers have been investigated to do the analysis more efficiently. The last part will present the methodology followed to investigate the pairing process between a phone and the SW2.
-
-\subsection{The Ubertooth Tools}
-\label{subsubsec:ubertooth_tools}
-The Ubertooth comes with some tools to make its use easier, these tools are included in the host code which is provided by the project Ubertooth.
-The main Ubertooth tool that are used during this project is \verb|ubertooth-rx|. \verb|ubertooth-rx| listens to all the packets sent on the bandwidth and displays them. The default functionality is: Scan the Bluetooth bandwidth and try to look for all the UAP of the devices. By using the option \verb|-l <LAP>| the tool will do a more in depth analysis. It will then use the given LAP and follow it to try to find the UAP and the clock which will be explained in \ref{subsubsec:finding_uap}. When the program has found these two values, it will have enough information to decrypt the packet. This packet will then be printed with all the information, being exactly where what is this research about. \pend There is also a Kismet plug-in available which also uses \verb|ubertooth-rx|, but displays it in a better way in the Kismet interface. It also makes log files in pcap format which can then be used to analyse the traces in Wireshark. The Kismet plug-in can only be used to discover all the Bluetooth devices in your neighbourhood and find their UAP. After it found the UAP it will continue by trying to find the clock.
-
-\begin{table}[!h]
-\begin{tabular}{|l|l|}
-\hline
-Tool & Description \\
-\hline
-\verb|ubertooth-rx| & Passively scan for all the Bluetooth devices and try to find the UAP for them. \\
-\hline
-\verb|ubertooth-scan| & An active scan of all the Bluetooth devices in the neighbourhood.  \\
-\hline
-\verb|ubertooth-btle| & The Ubertooth low energy tool. \\
-\hline
-\end{tabular}
-\caption{Ubertooth commands used during this project}
-\label{tab:ubertooth_tools}
-\end{table}
+This section describes the methodology followed to perform the analysis on Bluetooth communication. The first two parts will present the different layers that have been investigated to do an efficiently analysis of a Bluetooth communication . The last part will present the methodology followed to investigate the pairing process between a phone and the SW2.
+	
