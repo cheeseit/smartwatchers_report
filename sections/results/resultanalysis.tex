@@ -2,7 +2,7 @@
 This section describes the traffic analysis done on the RF layer and the HCI layer. The third section describes how the data found at the two layer have been tried to be correlated.
 \subsubsection{RF layer}
 \label{subsubsection:rflayer}
-Regarding the RF layer a few messages can be seen there. As shown in the appendix \ref{app:ubertooth} most of the packets seen are the NULL and POLL messages, these are keep alive messages. During the captures the Ubertooth is only looking at channel 0 on which these packets are sent.
+Regarding the RF layer a few messages can be seen there. Most of the packets seen are the NULL and POLL messages, these are keep alive messages. During the captures the Ubertooth is only looking at channel 0 on which these packets are sent.
 But there are also some other packets that are decoded by the Ubertooth. These packets over the RF layer are of a different types. The packet decoded are of type DV/3-DH1, AUX1, AFH, DM1, HV1, DH5/3-DH5. An explanation of these packet types are explained in this appendix \ref{app:types}.
 
 The only valuable information that could be output from this data analysis is that the packets sent between the smartwatch and the phone are fragmented as they contain different LLID parameters (which specifies if the payload is the start or the continuation of a L2CAP or LMP message). The packets their payload is encrypted.
