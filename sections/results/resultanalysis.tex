@@ -2,12 +2,10 @@
 This section describes the traffic analysis done on the RF layer and the HCI layer. The third section describes how the data found at the two layer have been tried to be correlated.
 \subsubsection{RF layer}
 \label{subsubsection:rflayer}
-Regarding the RF layer a few messages can be seen there. As shown in the appendix \ref{app:ubertooth} the most packets seen are the NULL and POLL messages, that are keep alive messages. During the captures the Ubertooth is only looking at channel 0 on which these packets are sent.
+Regarding the RF layer a few messages can be seen there. As shown in the appendix \ref{app:ubertooth} most of the packets seen are the NULL and POLL messages, these are keep alive messages. During the captures the Ubertooth is only looking at channel 0 on which these packets are sent.
+But there are also some other packets that are decoded by the Ubertooth. These packets over the RF layer are of a different types. The packet decoded are of type DV/3-DH1, AUX1, AFH, DM1, HV1, DH5/3-DH5. An explanation of these packet types are explained in this appendix \ref{app:types}.
 
-
-Some other packets are decoded by the Ubertooth and contains some data, the packets over the RF layer are of a different types. The packet decoded are of type DV/3-DH1, AUX1, AFH, DM1, HV1, DH5/3-DH5. An explanation of these packet types are explained in this appendix \ref{app:types} .
-
-The only valuable information that could be output from this data analysis is that the packets sent between the smartwatch and the phone are fragmented as they contain different LLID parameters (which specifies if the payload is the start or the continuation of a L2CAP or LMP message). The packets are also encrypted.
+The only valuable information that could be output from this data analysis is that the packets sent between the smartwatch and the phone are fragmented as they contain different LLID parameters (which specifies if the payload is the start or the continuation of a L2CAP or LMP message). The packets their payload is encrypted.
 
 \subsubsection{HCI layer}
 From the HCI captures, some conclusions can be drawn. Indeed, during the pairing process, some parameters are negotiated regarding the future communication between the two devices. SSP introduces IO capabilities that permits to exchanged what would be the pairing model based on the capability of the master and slave device. 
@@ -35,10 +33,9 @@ From there, it is true to say that the communication uses SSP and is encrypted a
 
 %Why cant we correlate the packet seen on Rf to hci? 
 %Maybe we should trey to decrypt a packet using the key we found nat the hci. Just to proove that it is possible to decrypt the packets if we would have the key. ANd we would have the key maybe if the ubertooth was doing what we did.
-Firstly the POLL and NULL packet are not available at the HCI layer. They are destined and processed at the link controller layer so they cannot be seen. With this said these package will have no effect on the correlation between what is seen on the Ubertooth and in the HCI. Also POLL and NULL packets are not interesting in general. More interesting are the other packages mentioned in section \ref{subsubsection:rflayer}. These packets can be see every so often and they come in a wide variety and have different payloads.
-These are packets that can be found and unwhitened by the Ubertooth.
-Some examples are seen in appendix \ref{app:roguepackets}.
-Looking at the first packet in appendix \ref{app:roguepackets} there are a few things that can be seen. The packets with data are always doubled. The exact reason for this is unknown. The first line of the output seen in the appendix contains information about the packet when and how it was found. This is primarily debug information, because we are only interested in the meaning of the packet. The most important part of this first line is this:
+First thing to notice is that the POLL and NULL packet are not available at the HCI layer. These are destined and processed at the link controller layer so they cannot be seen. With this said these packets will be seen during the correlation between what is seen on the Ubertooth and in the HCI. More interesting are the other packages mentioned in section \ref{subsubsection:rflayer}. These packets can be seen every so often and they come in a wide variety of packet types and have different payloads and sizes.
+These are the packets that can be found and unwhitened by the Ubertooth.
+Some examples are seen in appendix \ref{app:roguepackets}. These are all the 3-DH1 packets from one experiment. Looking at the first packet in appendix \ref{app:roguepackets} there are a few things that can be seen. The first line of the output seen in the appendix contains information about the packet when and how it was found. This is primarily debug information. The most important part of this first line is this:
 The \textbf{ch}, this is the channel in which the packet was found.
 The \textbf{LAP}, which is the sender's lower address part. \pend
 An unwhitened packet is divided in a few fields. Type, LT\_ADDR, flow, payload length and data.
@@ -47,6 +44,4 @@ Next is the \textbf{LT\_ADDR} this used to determine which is used by each recei
 The \textbf{LLID} is the (Logical Link Identifier). This is used to give information about the packet. For example if the value is $2$ this means that this is the start of the packet or it is standalone. It can also indicate that it is control information between the link manager of the master and the slave. This is indicated by a LLID of $3$.
 The value the \textbf{flow} is used to control the flow per logical link. This can be $1$ for go or $0$ for stop. This means that for all the shown packets that the transmission should be stopped first before sending more packets.
 For more detailed information of these fields look in the specifications that can be found here \cite{bt3.0}.
-After seeing the Bluetooth specifications it is no surprise that these packets cannot be seen on the HCI layer. These packets are used for the control of the data packages and other control information between master and and slave. These packets are not relevant for the higher layers and cannot be seen. We do not know what and why it controls.
-%do not know what else to say need to think about it.
-%BUT WE FAILED/ ANALYSED HOW WE CAN DO THAT
+After seeing the Bluetooth specifications it is no surprise that these packets cannot be seen on the HCI layer. These packets are used for the control of the data packages and other control information between master and and slave. These packets are not relevant for the higher layers and cannot be seen. We do not know what and why it controls. This means that the information gotten from the Ubertooth cannot be correlated to the information that is seen on the HCI layer. The experiment did not help make sense of the data seen.

@@ -1,9 +1,9 @@
 \label{subsec:problems}
-There are a few problems that have been encountered during the project. \\
-The main one is that we cannot see the most important data that is send. Indeed, the ubertooth tool that has been used, even though already powerful, cannot sniff packets that are going at high speed using the bluetooth 3.0+HS. If it had been wanted to do so, a dongle much more expensive would have been needed such as the FTS4BT costing around 5000 euros.\\
-The data not being seeable is a very important one. Indeed, it concerns the pairing process and the data that is exchanged between the smartwatch and the android device. Using the ubertooth, the only traffic visible (after catching the UAP and the clock) are the POLL, NULL and some rogue packets that are send over channel 0.\\
+There are a few problems that have been encountered during the project. 
+The main problem is that the data send cannot be seen. Indeed, the Ubertooth, even though already powerful, cannot sniff packets that are going at high speed using the Bluetooth 3.0+HS. \\
+While using the Ubertooth, the only traffic visible (after catching the UAP and the clock) are the POLL, NULL and other link control packets. These are all send over channel 0.\\
 
-Another problem came up when trying to correlate the data between the packets seen from the Ubertooth and from the HCI layer. The packets shown with the Ubertooth are encrypted and many packets from the HCI layer aren't displayed in the Ubertooth side. As we couldn't see the data exchanged during the pairing process due to insufficient tool capabilities, the decryption of packets were infeasible. These reasons made it really hard to find any correlation between these two packets provenance. It is expected that these packets (from Ubertooth) contain some kind of information for the HCI, but this is not certain.\\
+Another problem came up when trying to correlate the data between the packets seen from the Ubertooth and from the HCI layer. The problem was that the packets could not be seen on the HCI. Seeing the output of the the Ubertooth the hope was that there could still be some important information send on this channel. After some investigation these packets were not meant to be seen on the HCI level. The assumption made was wrong and nothing could be gained from this experiment.
 
-The Ubertooth is a fairly new open source device and it's primary use is not what has been tried in this project. It is under active development and the tools keep improving and changing. An upgrade on the hardware of this device would be needed in order to achieve what has been tried. \\
-In addition, only a few people are working with it, which makes it harder than usual to find a information and examples about how to use the Ubertooth.
+The Ubertooth is a fairly new open source device. It is under active development and the tools keep improving and changing. An upgrade on the hardware of this device would be needed in order to achieve. \\
+In addition, only a few people are working with it, which makes it hard to find information and examples about the Ubertooth.
